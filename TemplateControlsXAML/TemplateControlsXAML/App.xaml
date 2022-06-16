@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:TemplateControlsXAML.Models"
+             x:Class="TemplateControlsXAML.App">
+    <Application.Resources>
+        <ControlTemplate x:Key="MyBlue">
+            <CollectionView>
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type local:Person}">
+                        <local:Person Name="Steve" Age="21" Location="USA" />
+                        <local:Person Name="John" Age="37" Location="USA" />
+                        <local:Person Name="Tom" Age="42" Location="UK" />
+                        <local:Person Name="Lucas" Age="29" Location="Germany" />
+                        <local:Person Name="Tariq" Age="39" Location="UK" />
+                        <local:Person Name="Jane" Age="30" Location="USA" />
+                    </x:Array>
+                </CollectionView.ItemsSource>
+
+                <CollectionView.Background>
+                    <LinearGradientBrush StartPoint="0,0"
+                     EndPoint="1,1">
+                        <GradientStop Color="Yellow"
+                  Offset="0.0" />
+                        <GradientStop Color="Red"
+                  Offset="0.25" />
+                        <GradientStop Color="Blue"
+                  Offset="0.75" />
+                        <GradientStop Color="LimeGreen"
+                  Offset="1.0" />
+                    </LinearGradientBrush>
+                </CollectionView.Background>
+                <CollectionView.Header>
+                    <Frame>
+                        <Label Text="College Students" FontSize="Title" BackgroundColor="LightSalmon" />
+                    </Frame>
+                </CollectionView.Header>
+                <CollectionView.Footer>
+                    <StackLayout>
+                        <Frame>
+                            <Label Text="June 15 2022" FontSize="Title" BackgroundColor="OrangeRed" />
+                        </Frame>
+                        <ContentPresenter BackgroundColor="LightBlue" />
+                    </StackLayout>
+                </CollectionView.Footer>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Spacing="0" VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+                            <Label Text="{Binding Name}" FontSize="Title" BackgroundColor="LightBlue" />
+                            <Label Text="{Binding Age}" FontSize="Title" BackgroundColor="LightBlue" />
+                            <Label Text="{Binding Location}" FontSize="Title" BackgroundColor="LightBlue" />
+                            <BoxView BackgroundColor="Blue" HeightRequest="10" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ControlTemplate>
+
+    </Application.Resources>
+</Application>
